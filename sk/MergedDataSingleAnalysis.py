@@ -6,6 +6,7 @@ import operator
 from openpyxl import load_workbook
 from string import ascii_uppercase
 from string import ascii_lowercase
+import time
 
 # ============== MergedData Analyses ================
 # Has not been tested for bugs
@@ -21,7 +22,7 @@ t0 = time.time()
 singleFeatureAcc = [('Feature', 'Overall Accuracy', 'Male Accuracy', 'Female Accuracy')]
 
 for currFeature in df:
-    if currFeature in dropList:
+    if currFeature in dropList or currFeature == 'Gender':
         continue
     dfLooTest = df[['Gender', currFeature]]
 
