@@ -52,12 +52,10 @@ for c1 in ascii_uppercase:
 dfLooTest = dfNonCompact
 
 # Timing LOOCV runtime
-import time
 t0 = time.time()
     
 # Uses Leave One Out Cross Validation (LOOCV) to estimate how training model would do on predicting external data
-loo = LeaveOneOut()
-print("Number of splits: " + str(loo.get_n_splits(x))) 
+loo = LeaveOneOut() 
 x = dfLooTest.drop(['gender'], axis=1).as_matrix()
 y = dfLooTest[['gender']].as_matrix().ravel()
 
@@ -124,10 +122,10 @@ lastLetter = [f for f in dfNonCompact.columns if "LastLetter" in f]
 lastTwo = [f for f in dfNonCompact.columns if "LastTwo" in f]
 
 letterFeatures = {}
-letterFeatures["FirstLetter"] = dfNonCompact[firstLetter]
-letterFeatures["FirstTwo"] = dfNonCompact[firstTwo]
-letterFeatures["LastLetter"] = dfNonCompact[lastLetter]
-letterFeatures["LastTwo"] = dfNonCompact[lastTwo]
+letterFeatures["FirstLetter"] = dfNonCompact[['gender'] + firstLetter]
+letterFeatures["FirstTwo"] = dfNonCompact[['gender'] + firstTwo]
+letterFeatures["LastLetter"] = dfNonCompact[['gender'] + lastLetter]
+letterFeatures["LastTwo"] = dfNonCompact[['gender'] + lastTwo]
 
 """LOOCV LOOPED ANALYSIS"""
 
@@ -137,7 +135,6 @@ oneHotAnalysis = [('One-hot vectors',), ('Feature', 'Overall Accuracy', 'Male Ac
 
 
 # Timing LOOCV runtime
-import time
 t0 = time.time()
 
 for feature in features.keys():
@@ -147,7 +144,6 @@ for feature in features.keys():
 
     # Uses Leave One Out Cross Validation (LOOCV) to estimate how training model would do on predicting external data
     loo = LeaveOneOut()
-    print("Number of splits: " + str(loo.get_n_splits(x))) 
     x = dfLooTest.drop(['gender'], axis=1).as_matrix()
     y = dfLooTest[['gender']].as_matrix().ravel()
 
