@@ -1,0 +1,172 @@
+Libraries imported
+MergedData read and took: 37.191556215286255
+Analysis about to begin on 15features
+Current feature: A ending?
+First prediction of: A ending?
+Prediction: [0]
+[[1]
+ [0]
+ [1]
+ ..., 
+ [0]
+ [0]
+ [1]] [[0]] [1 1 1 ..., 0 0 1] [0]
+Overall accuracy of A ending?: 0.6524891351362485
+Feature number: 0
+Current feature: Plosive ending? (p,b,t,d,k,g)
+First prediction of: Plosive ending? (p,b,t,d,k,g)
+Prediction: [1]
+[[0]
+ [0]
+ [0]
+ ..., 
+ [0]
+ [0]
+ [0]] [[0]] [1 1 1 ..., 0 0 1] [0]
+Overall accuracy of Plosive ending? (p,b,t,d,k,g): 0.6606867005828923
+Feature number: 1
+Current feature: Sonorant ending? (m,n,ng,l,r)
+First prediction of: Sonorant ending? (m,n,ng,l,r)
+Prediction: [0]
+[[0]
+ [0]
+ [0]
+ ..., 
+ [0]
+ [0]
+ [0]] [[1]] [1 1 1 ..., 0 0 1] [0]
+Overall accuracy of Sonorant ending? (m,n,ng,l,r): 0.7212724763650594
+Feature number: 2
+Current feature: Fricative ending? (f,v,th,s,z,sh,ch,dge)
+First prediction of: Fricative ending? (f,v,th,s,z,sh,ch,dge)
+Prediction: [1]
+[[0]
+ [0]
+ [0]
+ ..., 
+ [0]
+ [1]
+ [0]] [[0]] [1 1 1 ..., 0 0 1] [0]
+Overall accuracy of Fricative ending? (f,v,th,s,z,sh,ch,dge): 0.6582665650553027
+Feature number: 3
+Current feature: 1st letter fricative? (f,v,th,s,z,sh,ch,j)
+First prediction of: 1st letter fricative? (f,v,th,s,z,sh,ch,j)
+Prediction: [1]
+[[0]
+ [0]
+ [0]
+ ..., 
+ [1]
+ [1]
+ [1]] [[0]] [1 1 1 ..., 0 0 1] [0]
+Overall accuracy of 1st letter fricative? (f,v,th,s,z,sh,ch,j): 0.6280406170830672
+Feature number: 4
+Current feature: Total # of sonorants (m,n,l,r,w,y)
+First prediction of: Total # of sonorants (m,n,l,r,w,y)
+Prediction: [1]
+[[1]
+ [2]
+ [2]
+ ..., 
+ [3]
+ [3]
+ [1]] [[1]] [1 1 1 ..., 0 0 1] [0]
+Overall accuracy of Total # of sonorants (m,n,l,r,w,y): 0.6280406170830672
+Feature number: 5
+Current feature: Total # of vowels (a, e, i, o, u)
+First prediction of: Total # of vowels (a, e, i, o, u)
+Prediction: [1]
+[[3]
+ [4]
+ [3]
+ ..., 
+ [3]
+ [3]
+ [1]] [[3]] [1 1 1 ..., 0 0 1] [0]
+Overall accuracy of Total # of vowels (a, e, i, o, u): 0.6338386439002286
+Feature number: 6
+Current feature: 1st letter plosive? (p,b,t,d,k,g)
+First prediction of: 1st letter plosive? (p,b,t,d,k,g)
+Prediction: [1]
+[[0]
+ [0]
+ [0]
+ ..., 
+ [0]
+ [0]
+ [0]] [[0]] [1 1 1 ..., 0 0 1] [0]
+Overall accuracy of 1st letter plosive? (p,b,t,d,k,g): 0.6280406170830672
+Feature number: 7
+Current feature: Total # of plosives  (p,b,t,d,k,g)
+First prediction of: Total # of plosives  (p,b,t,d,k,g)
+Prediction: [1]
+[[1]
+ [0]
+ [0]
+ ..., 
+ [0]
+ [2]
+ [0]] [[1]] [1 1 1 ..., 0 0 1] [0]
+Overall accuracy of Total # of plosives  (p,b,t,d,k,g): 0.6263001791930135
+Feature number: 8
+Current feature: VowelEnding? (a, e, i, o, u,y)
+First prediction of: VowelEnding? (a, e, i, o, u,y)
+Prediction: [0]
+[[1]
+ [0]
+ [1]
+ ..., 
+ [1]
+ [0]
+ [1]] [[0]] [1 1 1 ..., 0 0 1] [0]
+Overall accuracy of VowelEnding? (a, e, i, o, u,y): 0.7509423080884019
+Feature number: 9
+Current feature: # of letters
+First prediction of: # of letters
+Prediction: [1]
+[[ 6]
+ [ 7]
+ [ 5]
+ ..., 
+ [ 8]
+ [10]
+ [ 4]] [[5]] [1 1 1 ..., 0 0 1] [0]
+Overall accuracy of # of letters: 0.6307079153879426
+Feature number: 10
+Current feature: # of fricatives (f,v,th,s,z,sh,ch,j)
+First prediction of: # of fricatives (f,v,th,s,z,sh,ch,j)
+Prediction: [1]
+[[0]
+ [0]
+ [0]
+ ..., 
+ [1]
+ [2]
+ [2]] [[0]] [1 1 1 ..., 0 0 1] [0]
+Overall accuracy of # of fricatives (f,v,th,s,z,sh,ch,j): 0.6284422565961566
+Feature number: 11
+Current feature: 1st letter vowel? (a, e, i, o, u)
+First prediction of: 1st letter vowel? (a, e, i, o, u)
+Prediction: [1]
+[[1]
+ [1]
+ [1]
+ ..., 
+ [0]
+ [0]
+ [0]] [[1]] [1 1 1 ..., 0 0 1] [0]
+Overall accuracy of 1st letter vowel? (a, e, i, o, u): 0.6280406170830672
+Feature number: 12
+Current feature: 1st letter sonorant? (m,n,l,r,w,y)
+First prediction of: 1st letter sonorant? (m,n,l,r,w,y)
+Prediction: [1]
+[[0]
+ [0]
+ [0]
+ ..., 
+ [0]
+ [0]
+ [0]] [[0]] [1 1 1 ..., 0 0 1] [0]
+Overall accuracy of 1st letter sonorant? (m,n,l,r,w,y): 0.6280406170830672
+Feature number: 13
+Runtime of compact model single feature analysis: 108299.31275200844
