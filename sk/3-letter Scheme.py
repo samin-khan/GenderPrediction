@@ -7,6 +7,8 @@ import matplotlib.pyplot as plt
 from openpyxl import load_workbook
 import time
 from string import ascii_lowercase
+import pickle
+from scipy.sparse import csr_matrix
 
 df = pd.read_excel("MergedData.xlsx")
 df = df.replace({'Male':0}, regex=True)
@@ -36,14 +38,7 @@ for c1 in ascii_lowercase:
             dfLetters.insert(len(dfLetters.columns), "Ends with: " + c1 + c2 + c3, 0)
             dfLetters.loc[(dfLetters['Name'].str.endswith(c1 + c2 + c3)), "Ends with: " + c1 + c2 + c3] = 1
 
-excel_dir = 'MergedData.xlsx'
-book = load_workbook(excel_dir)
-with pd.ExcelWriter(excel_dir, engine='openpyxl') as writer:
-    writer.book = book
-    writer.sheets = dict((ws.title, ws) for ws in book.worksheets)    
-
-    ## Your dataframe to append. 
-    dfWrite.to_excel(writer, 'Sheet4', index=False)
-
-    writer.save()  
-writer.close()
+csr_df = csr_matrix(dfLetters.drop(["Name"], axis=1))
+out = open("Merged3LetterScheme.pkl", "wb")
+pickle.dump(csr_df, out)
+out.close()
