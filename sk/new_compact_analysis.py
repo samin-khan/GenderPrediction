@@ -18,7 +18,8 @@ in_df.close()
 
 """LOOCV ANALYSIS"""
 # Change parameter depending on target feature
-dfLooTest = dfCompact.drop(["Name", "dataID"], axis=1).sample(frac=1) # Randomizes rows
+dfLooNames = dfCompact.drop(["dataID"], axis=1).sample(frac=1) # Randomizes rows
+dfLooTest = dfLooNames.drop(["Name"], axis=1)
 
 # Timing LOOCV runtime
 t0 = time.time()
@@ -54,7 +55,7 @@ for train_index, test_index in loo.split(x):
             female_total += 1
             correct_female += 1 if prediction == y_test[t_index] else 0
         if y_test[t_index] != prediction:
-            errNames.append((y_test[t_index], dfLetters.Name.iloc[name_index]))
+            errNames.append((y_test[t_index], dfLooTest.Name.iloc[name_index]))
         name_index += 1
 overallAcc = (correct_male + correct_female) / (male_total + female_total)
 maleAcc = correct_male / male_total
