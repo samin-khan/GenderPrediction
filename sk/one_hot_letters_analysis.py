@@ -7,6 +7,7 @@ import matplotlib.pyplot as plt
 from openpyxl import load_workbook
 from string import ascii_uppercase
 from string import ascii_lowercase
+import time
 
 # Reading in data and changing the gender of all names that are both male and female to neutral
 dfRaw = pd.read_excel("RACodedNamesFeb1.xlsx")

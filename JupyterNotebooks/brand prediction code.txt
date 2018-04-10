@@ -1,0 +1,88 @@
+sheet = 1
+count = 0
+for category in df.CATEGORY.unique():
+
+    
+    print(category)
+    
+    num_females = 0
+    num_total = 0
+    
+    dfCurrent = dfFeatures.loc[df['CATEGORY'] == category]
+    
+    name_predictions = [("Name", "Prediction", "Male Confidence", "Female Confidence")]
+    male_confidence = []
+    female_confidence = []
+    
+    for i in range(len(dfCurrent)):
+        dot = 0
+        for f in range(len(dfCoef[1])):
+            dot += dfCurrent.iloc[i][f+1] * dfCoef[1][f]
+        prediction_probability = 1 / (math.exp(- dot - intercept) + 1)
+        
+        num_total += 1
+        if prediction_probability >= 0.5:
+            num_females += 1
+            name_predictions.append((dfCurrent.iloc[i][0], prediction_probability, None, prediction_probability - 0.5))
+            female_confidence.append(prediction_probability - 0.5)
+        else:
+            name_predictions.append((dfCurrent.iloc[i][0], prediction_probability, abs(prediction_probability - 0.5), None))
+            male_confidence.append(abs(prediction_probability - 0.5))
+    
+    female_ratio = num_females / num_total
+    
+    name_predictions[0] = ("Name", "Prediction", "Male Confidence", "Female Confidence", "Female Ratio: " + str(female_ratio))
+    
+    print("Female ratio: " + str(female_ratio))
+    
+    dfPredict = pd.DataFrame(name_predictions)
+    excel_dir = 'brand_predictions.xlsx'
+    book = load_workbook(excel_dir)
+    with pd.ExcelWriter(excel_dir, engine='openpyxl') as writer:
+        writer.book = book
+        writer.sheets = dict((ws.title, ws) for ws in book.worksheets)    
+
+        ## Your dataframe to append. 
+        dfPredict.to_excel(writer, category, index=False)
+
+        writer.save()  
+    writer.close()
+    
+    count += num_total
+    sheet += 1
+    
+    file_name = category
+
+    bar_nums = [1,2]
+    ratios = [1 - female_ratio, female_ratio]
+
+    LABELS = ["Male", "Female"]
+
+    plt.subplot(1, 3, 1)
+    plt.bar(bar_nums, ratios, align='center')
+    plt.xticks(bar_nums, LABELS)
+
+    plt.title(file_name + '\nGender Ratio (N=' + str(num_total) + ')')
+    plt.ylabel("Ratio (%)")
+    plt.xlabel("Gender")
+    
+    for i,j in zip(bar_nums,ratios):
+        plt.annotate(str(round(j, 2)),xy=(i,j))
+    plt.subplot(1, 2, 2)
+    
+    data = [male_confidence, female_confidence]
+#     data = np.concatenate((male_confidence, female_confidence), 0)
+    plt.boxplot(data, labels = ['Male', 'Female'])
+    plt.ylim([0, 0.5])
+#     plt.boxplot(male_confidence, positions = [1, 2])
+
+#     plt.boxplot(female_confidence, positions = [3, 4])
+    
+    
+    plt.savefig(file_name + '.png')
+    plt.clf()
+    
+    
+    
+    
+print("Total: " + str(count))

@@ -51,7 +51,7 @@ for currFeature in df:
     flag = True
 
     for train_index, test_index in loo.split(x):
-        print("TRAIN:", train_index, "TEST:", test_index)
+        # print("TRAIN:", train_index, "TEST:", test_index)
         x_train, x_test = x[train_index], x[test_index]
         y_train, y_test = y[train_index], y[test_index]
         model.fit(x_train, y_train)

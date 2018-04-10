@@ -14,7 +14,7 @@ dfLetters = df[['Name', 'Gender']]
 t0 = time.time()
 
 for c1 in ascii_lowercase:
-    
+    t_char1 = time.time()
     print(c1)
 
     dfLetters.insert(len(dfLetters.columns), "Starts with: " + c1, 0)

@@ -79,7 +79,10 @@ print("Female accuracy: " + str(femaleAcc))
 print("\nCoefficients: \n")
 print({'Total male': male_total, 'Correct male': correct_male, 'Total female': female_total, 'Correct female': correct_female})
 
-
+details = [("Runtime", str(runtime)), ("Overall accuracy", str(overallAcc)), ("Male accuracy", str(maleAcc)), ("Female accuracy", str(femaleAcc))]
+out_details = open("details.pkl", "wb")
+pickle.dump(details, out_details)
+out_details.close()
 # dfCoefficients = pd.DataFrame(sorted_x)
 
 dfWrongNames = pd.DataFrame(errNames)

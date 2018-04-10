@@ -6,6 +6,7 @@ import operator
 import matplotlib.pyplot as plt
 from openpyxl import load_workbook
 from string import ascii_lowercase
+import time
 
 df = pd.read_excel("MergedData.xlsx")
 
@@ -16,12 +17,12 @@ df = pd.read_excel("MergedData.xlsx")
 dropList = ["Name", "dataID", "Last Letter", "Last Two"]
 dfLooTest = df.drop(dropList, axis=1)
 
+
 # List to keep track of indices where error occurs
 errorIndices = []
 index = 0
 
 # Timing LOOCV runtime
-import time
 t0 = time.time()
     
 # Uses Leave One Out Cross Validation (LOOCV) to estimate how training model would do on predicting external data
