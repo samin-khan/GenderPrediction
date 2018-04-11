@@ -1,0 +1,126 @@
+       Gender  A ending?  Plosive ending? (p,b,t,d,k,g)  \
+90589       0          0                              1   
+13086       1          1                              0   
+46201       1          1                              0   
+54805       0          0                              1   
+88573       0          0                              0   
+
+       Sonorant ending? (m,n,ng,l,r)  \
+90589                              0   
+13086                              0   
+46201                              0   
+54805                              0   
+88573                              0   
+
+       Fricative ending? (f,v,th,s,z,sh,ch,dge)  \
+90589                                         0   
+13086                                         0   
+46201                                         0   
+54805                                         0   
+88573                                         0   
+
+       1st letter fricative? (f,v,th,s,z,sh,ch,j)  \
+90589                                           0   
+13086                                           0   
+46201                                           0   
+54805                                           0   
+88573                                           0   
+
+       Total # of sonorants (m,n,l,r,w,y)  Total # of vowels (a, e, i, o, u)  \
+90589                                   2                                  3   
+13086                                   2                                  3   
+46201                                   1                                  4   
+54805                                   1                                  1   
+88573                                   2                                  4   
+
+       1st letter plosive? (p,b,t,d,k,g)  Total # of plosives  (p,b,t,d,k,g)  \
+90589                                  1                                   2   
+13086                                  0                                   0   
+46201                                  1                                   1   
+54805                                  0                                   1   
+88573                                  1                                   1   
+
+       VowelEnding? (a, e, i, o, u,y)  # of letters  \
+90589                               0             8   
+13086                               1             5   
+46201                               1             8   
+54805                               0             4   
+88573                               1             8   
+
+       # of fricatives (f,v,th,s,z,sh,ch,j)  \
+90589                                     1   
+13086                                     0   
+46201                                     1   
+54805                                     1   
+88573                                     1   
+
+       1st letter vowel? (a, e, i, o, u)  1st letter sonorant? (m,n,l,r,w,y)  \
+90589                                  0                                   0   
+13086                                  1                                   0   
+46201                                  0                                   0   
+54805                                  0                                   1   
+88573                                  0                                   0   
+
+       Front Vowels  Back Vowels  
+90589             1            1  
+13086             0            1  
+46201             2            0  
+54805             0            0  
+88573             2            1  
+0 gursewak
+1 aruna
+1 keneesha
+0 majd
+0 gursewak
+1 aruna
+0 keneesha
+1 majd
+0 gursewak
+1 aruna
+1 keneesha
+1 majd
+1 gursewak
+0 aruna
+1 keneesha
+0 majd
+1 gursewak
+0 aruna
+0 keneesha
+1 majd
+1 gursewak
+1 aruna
+1 keneesha
+0 majd
+1 gursewak
+1 aruna
+1 keneesha
+1 majd
+0 gursewak
+0 aruna
+1 keneesha
+1 majd
+1 gursewak
+0 aruna
+1 keneesha
+1 majd
+0 gursewak
+0 aruna
+1 keneesha
+1 majd
+Index(['Gender', 'A ending?', 'Plosive ending? (p,b,t,d,k,g)',
+       'Sonorant ending? (m,n,ng,l,r)',
+       'Fricative ending? (f,v,th,s,z,sh,ch,dge)',
+       '1st letter fricative? (f,v,th,s,z,sh,ch,j)',
+       'Total # of sonorants (m,n,l,r,w,y)',
+       'Total # of vowels (a, e, i, o, u)',
+       '1st letter plosive? (p,b,t,d,k,g)',
+       'Total # of plosives  (p,b,t,d,k,g)', 'VowelEnding? (a, e, i, o, u,y)',
+       '# of letters', '# of fricatives (f,v,th,s,z,sh,ch,j)',
+       '1st letter vowel? (a, e, i, o, u)',
+       '1st letter sonorant? (m,n,l,r,w,y)', 'Front Vowels', 'Back Vowels'],
+      dtype='object')
+Runtime: 141.29512739181519
+Overall accuracy: 0.8197359477662663
+Male accuracy: 0.7577385237277812
+Female accuracy: 0.8564541519086973
+{'Total female': 60984, 'Correct female': 52230, 'Total male': 36118, 'Correct male': 27368}
