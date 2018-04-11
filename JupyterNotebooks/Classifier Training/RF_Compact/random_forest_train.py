@@ -38,7 +38,6 @@ errNames = [('Gender', 'Name')]
 
 # Can optionally recreate a model to exclude the last training round
 model = RandomForestClassifier()
-print(dfLooTest.head())         # PRINT HEAD
 for train_index, test_index in loo.split(x):
     x_train, x_test = x[train_index], x[test_index]
     y_train, y_test = y[train_index], y[test_index]
@@ -54,8 +53,6 @@ for train_index, test_index in loo.split(x):
         else:
             female_total += 1
             correct_female += 1 if prediction == y_test[t_index] else 0
-        if name_index <= 3:
-            print(y_test[t_index], dfLooNames.Name.iloc[name_index])    # PRINTING TO CHECK FOR CORRECT NAMES
         if y_test[t_index] != prediction:
             errNames.append((y_test[t_index], dfLooNames.Name.iloc[name_index]))
 
