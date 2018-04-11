@@ -4,7 +4,6 @@ from sklearn.model_selection import LeaveOneOut
 from sklearn.linear_model import LogisticRegression
 import operator
 import matplotlib.pyplot as plt
-from openpyxl import load_workbook
 import time
 from string import ascii_lowercase
 import pickle
@@ -39,7 +38,7 @@ errNames = [('Gender', 'Name')]
 
 # Can optionally recreate a model to exclude the last training round
 model = RandomForestClassifier()
-
+print(dfLooTest.head())         # PRINT HEAD
 for train_index, test_index in loo.split(x):
     x_train, x_test = x[train_index], x[test_index]
     y_train, y_test = y[train_index], y[test_index]
@@ -55,8 +54,11 @@ for train_index, test_index in loo.split(x):
         else:
             female_total += 1
             correct_female += 1 if prediction == y_test[t_index] else 0
+        if name_index <= 3:
+            print(y_test[t_index], dfLooNames.Name.iloc[name_index])    # PRINTING TO CHECK FOR CORRECT NAMES
         if y_test[t_index] != prediction:
             errNames.append((y_test[t_index], dfLooNames.Name.iloc[name_index]))
+
         name_index += 1
 overallAcc = (correct_male + correct_female) / (male_total + female_total)
 maleAcc = correct_male / male_total
@@ -65,39 +67,27 @@ femaleAcc = correct_female / female_total
 t1 = time.time()
 runtime = t1 - t0
 
-# coefficients = {}
-# for i in range(len(dfLooTest.columns) - 1):
-#     coefficients[dfLooTest.columns[i + 1]] = model.coef_[0][i]
-
-# sorted_x = sorted(coefficients.items(), key=operator.itemgetter(1), reverse=True)
-
 print(dfLooTest.columns)
 print("Runtime: " + str(runtime))
 print("Overall accuracy: " + str(overallAcc))
 print("Male accuracy: " + str(maleAcc))
 print("Female accuracy: " + str(femaleAcc))
-print("\nCoefficients: \n")
 print({'Total male': male_total, 'Correct male': correct_male, 'Total female': female_total, 'Correct female': correct_female})
+
+dfWrongNames = pd.DataFrame(errNames)
+dfWrongNames.to_csv("RF_wrong_names.csv")
 
 details = [("Runtime", str(runtime)), ("Overall accuracy", str(overallAcc)), ("Male accuracy", str(maleAcc)), ("Female accuracy", str(femaleAcc))]
 out_details = open("details.pkl", "wb")
 pickle.dump(details, out_details)
 out_details.close()
-# dfCoefficients = pd.DataFrame(sorted_x)
-
-dfWrongNames = pd.DataFrame(errNames)
 
 # pickling the model
 out_model = open("RF_model.pkl", "wb")
 pickle.dump(model, out_model)
 out_model.close()
 
-
-#out_coef = open("compact_merge_coef.pkl", "wb")
-#pickle.dump(dfCoefficients, out_coef)
-#out_coef.close()
-
-out_wrong = open("compact_merge_wrong_names.pkl", "wb")
+out_wrong = open("RF_wrongnames.pkl", "wb")
 pickle.dump(dfWrongNames, out_wrong)
 out_wrong.close()
 
