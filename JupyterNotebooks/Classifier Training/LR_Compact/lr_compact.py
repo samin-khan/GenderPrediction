@@ -63,7 +63,7 @@ t1 = time.time()
 runtime = t1 - t01
     
 analysis = [("Overall Accuracy", "Male Accuracy", "Female Accuracy", "Runtime")]
-analysis = ((overallAcc, maleAcc, femaleAcc, runtime))
+analysis.append((overallAcc, maleAcc, femaleAcc, runtime))
     
 dfAnalysis = pd.DataFrame(analysis)
    
@@ -71,3 +71,18 @@ dfAnalysis.to_csv("compact_analysis.csv")
 
 dfWrongNames = pd.DataFrame(errNames)
 dfWrongNames.to_csv("wrong_names.csv")
+
+out_model = open("LR_model.pkl", "wb")
+pickle.dump(model, out_model)
+out_model.close()
+
+coefficients = {}
+for i in range(len(dfLooTest.columns) - 1):
+    coefficients[dfLooTest.columns[i + 1]] = model.coef_[0][i]
+
+sorted_x = sorted(coefficients.items(), key=operator.itemgetter(1), reverse=True)
+coef = [("Feature", "Weight")]
+for row in sorted_x:
+    coef.append(sorted_x[row])
+dfCoef = pd.DataFrame(coef)
+dfCoef.to_csv("feature_coefficients.csv")

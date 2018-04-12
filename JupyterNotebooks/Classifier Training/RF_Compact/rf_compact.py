@@ -60,10 +60,13 @@ t1 = time.time()
 runtime = t1 - t0
 
 analysis = [("Overall Accuracy", "Male Accuracy", "Female Accuracy", "Runtime")]
-analysis = ((overallAcc, maleAcc, femaleAcc, runtime))
+analysis.append((overallAcc, maleAcc, femaleAcc, runtime))
 dfAnalysis = pd.DataFrame(analysis)
 dfAnalysis.to_csv("compact_analysis.csv")
 
 dfWrongNames = pd.DataFrame(errNames)
 dfWrongNames.to_csv("wrong_names.csv")
 
+out_model = open("RF_model.pkl", "wb")
+pickle.dump(model, out_model)
+out_model.close()
