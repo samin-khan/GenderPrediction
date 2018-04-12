@@ -61,9 +61,7 @@ runtime = t1 - t0
 
 analysis = [("Overall Accuracy", "Male Accuracy", "Female Accuracy", "Runtime")]
 analysis = ((overallAcc, maleAcc, femaleAcc, runtime))
-    
 dfAnalysis = pd.DataFrame(analysis)
-   
 dfAnalysis.to_csv("compact_analysis.csv")
 
 dfWrongNames = pd.DataFrame(errNames)
