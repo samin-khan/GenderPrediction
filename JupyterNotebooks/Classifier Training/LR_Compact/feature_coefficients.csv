@@ -1,0 +1,18 @@
+,0,1
+0,Feature,Weight
+1,A ending?,2.73307102538
+2,"Total # of sonorants (m,n,l,r,w,y)",0.359446668143
+3,"1st letter fricative? (f,v,th,s,z,sh,ch,j)",0.231552148063
+4,"Total # of vowels (a, e, i, o, u)",0.131637391644
+5,Front Vowels,0.126706271321
+6,"1st letter vowel? (a, e, i, o, u)",0.089949855042
+7,# of letters,0.0734475322538
+8,"1st letter sonorant? (m,n,l,r,w,y)",0.0717775552355
+9,"1st letter plosive? (p,b,t,d,k,g)",-0.0177550078927
+10,"# of fricatives (f,v,th,s,z,sh,ch,j)",-0.0979058728784
+11,"Total # of plosives  (p,b,t,d,k,g)",-0.148207831059
+12,"VowelEnding? (a, e, i, o, u,y)",-0.31943951574
+13,Back Vowels,-1.05724379858
+14,"Fricative ending? (f,v,th,s,z,sh,ch,dge)",-1.89471405013
+15,"Sonorant ending? (m,n,ng,l,r)",-2.08328758384
+16,"Plosive ending? (p,b,t,d,k,g)",-2.19538188224
